@@ -5,7 +5,9 @@
 
 Пример JSON 
 
-```js const input = `{
+```
+
+js const input = `{
    "inputs": [
       {
           "label": "Фамилия",
@@ -30,6 +32,7 @@
       "text": "Отправить"
     }
 }`
+
 ```
 
 
