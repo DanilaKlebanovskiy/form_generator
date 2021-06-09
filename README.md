@@ -36,15 +36,18 @@ js const input = `{
 }`
 
 ```
-Для начала работы с формой создайте поле container которому будет присоединяться форма:
+Для начала работы с формой найдите поле к которому будет присоединяться форма:
 
 ``` const formContainer = document.getElementById("start_form") ```
 
+Передайте найденое поле в конструктор, второым параметром передайте JSON
+
 ``` const FormInstance = new JsonForm(formContainer, input) ```
 
+Выполните метод render(), 
+
+```const formContainer = document.getElementById("start_form")```
 
 
-FormInstance.render()
-FormInstance.validate()
 
-import JsonForm from "json_form"
+
