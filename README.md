@@ -46,7 +46,7 @@ js const input = `{
 
 Выполните метод render(), 
 
-```const formContainer = document.getElementById("start_form")```
+```FormInstance.render()```
 
 
 
