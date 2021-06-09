@@ -50,65 +50,26 @@ js const input = `{
 
 Каждое поле добавляются в массив input, в виде объекта, и должно иметь обязательное поле type,
 в случае некорректного type в консоле будет выведена ошибка ``Unknown type ``. при неуказанном type ``Uncorected type``
-Так же может иметь необязательные поля:
-```
-autocomplete : boolean - включает или отключает автозаполнение.
-autofocus : boolean - устанавливает фокус в поле формы.
-disabled : boolean - блокирует доступ и изменение элемента.
-maxLength : number - максимальное количество символов разрешенных в тексте.
-placeholder : string - выводит подсказывающий текст.
-pattern : regular expression - устанавливает шаблон ввода.
-required : boolean - обязательное для заполнения поле.
-name : string - имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.
-readonly : boolean - устанавливает, что поле не может изменяться пользователем.
-
-Для числовых полей :
-step : number - шаг приращения для числовых полей.
-min : number - нижнее значение для ввода числа или даты.
-
 
 ```
+type = "text", type = "search"
+Поддерживаемые атрибуты:
+autocomplete ,maxlength ,name ,pattern ,placeholder ,readonly ,required ,value
 
-checked
-    Предварительно активированный переключатель или флажок. 
+type="email"
+autocomplete maxlength multiple name pattern placeholder readonly required  value
 
-form
-    Связывает поле с формой по её идентификатору.
-formaction
-    Определяет адрес обработчика формы.
-formenctype
-    Устанавливает способ кодирования данных формы при их отправке на сервер.
-formmethod
-    Сообщает браузеру каким методом следует передавать данные формы на сервер.
-formnovalidate
-    Отменяет встроенную проверку данных на корректность.
-formtarget
-    Определяет окно или фрейм в которое будет загружаться результат, возвращаемый обработчиком формы.
-list
-    Указывает на список вариантов, которые можно выбирать при вводе текста.
-max
-    Верхнее значение для ввода числа или даты.
-maxlength
-    Максимальное количество символов разрешенных в тексте.
+type="tel" , type="url", type="password"
+autocomplete maxlength name pattern placeholder readonly required  value
 
-multiple
-    Позволяет загрузить несколько файлов одновременно.
-name
-    Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.
+type="number"
+autocomplete maxlength max min name placeholder readonly required size step value
 
-size
-    Ширина текстового поля.
-src
-    Адрес графического файла для поля с изображением.
+type = "date" , type = "range"
+autocomplete list max min name readonly required step value
 
-tabindex
-    Определяет порядок перехода между элементами с помощью клавиши Tab.
-type
-    Сообщает браузеру, к какому типу относится элемент формы.
-value
-
-
-
-
+type = "radio", type ="checkbox"
+checked name required value
+```
 
 
