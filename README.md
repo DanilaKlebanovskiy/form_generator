@@ -6,7 +6,11 @@
 а так же кнопки submit и reset
       
 ### Пример JSON 
+JSON имеет 3 основных поля, inputs, button, style
 
+inputs - для добавления полей 
+buttons - для добавления полей таких как submit или reset 
+style - поддерживает классы light и dark
 ```
 
 js const input = `{
@@ -56,6 +60,23 @@ type = "text", type = "search"
 Поддерживаемые атрибуты:
 autocomplete ,maxlength ,name ,pattern ,placeholder ,readonly ,required ,value
 
+Пример JSON type = "text"
+
+  {
+     "label": "Фамилия",
+     "disabled": "false",
+     "autofocus": "true",
+     "maxlength": "12",
+      "required" : "false",
+     "type": "text",
+     "id": "last_name", 
+     "placeholder": "Vasiya",
+     "autocomplete": "on",
+     "pattern" : "[A-Z]",
+     "hints": ["наруссsком","безпробелов"],
+      "size": "45"
+     }
+
 type="email"
 autocomplete maxlength multiple name pattern placeholder readonly required  value
 
@@ -70,6 +91,17 @@ autocomplete list max min name readonly required step value
 
 type = "radio", type ="checkbox"
 checked name required value
+
+type = "submit"
+formaction formenctype formmethod formnovalidate formtarget name value
+
+type = "reset"
+name value
+
+А также type = "select"
+
+
+Поле hints создает блок подсказок ([hint1, hint2, ...])
 ```
 
 
