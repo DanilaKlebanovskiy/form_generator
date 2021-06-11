@@ -1,279 +1,3 @@
-/*todo : 
-1. Рефакторинг с классами
-2. Форма должна поддерживать чекбоксы радиокнопки, текстареа, селекты
-3. Форма должна быть вложена и могла бы работать с json схема 
-4. Стили прикрутить 
-5. Валидация формы
- */
-
-/* 
-input -reset !!!!
-Required - обязательность заполнения, по умолчанию false
-Если пришел без основного параметра то задаем его сами
-Обязательные type
-placeholder 
-disabled,tabindex ???????
-
-//Свойство maxlength для inputa поч не работает 
-//"required" : "false" ,  "autofocus": "false",  "disabled": "false",срабатывает 
-//Есть свойство pattern можно использовать как валидацию, но тоже норм не работает
-//не получается нормально сверстать чекбоксы и радиобатаны
-Checkbox
-   {     
-         "label": "Запомнить",
-         "type": "checkbox"
-         "items":[
-               {
-               "cheked": "true",
-               "value": "yes"},
-                 {
-               "cheked": "false",
-               "value": "no"}
-         ] 
-      },
-Password
-      {
-         "label": "Пароль",
-         "type": "password",
-         "disabled": "true"
-      },
-Textarea
-      {  
-         "type": "textarea",
-         "label": "story",
-         "placeholder": "подпись поля"
-      } 
-Radio
-      {
-         "type":"radio",
-         "name": "beer",
-         "option" : [
-            {"value": "lager"},
-            {"value": "dark" }
-         ]
-      }  
-      
-File {
-      "type": "file",
-      "name": "photo"
-},
-
-Selector {
-    selected?
-   name : "color"
-   id: "color"
-   option : [{
-      value: "red"
-      text : "Красный"
-   },
-   {
-      value: "yellow"
-      text : "Желтый"
-   },
-   ]
-}
-
-MultipluySelector {
-   selected?
-   name : "color"
-   id: "color"
-   multiple : true
-   option : [{
-      value: "red"
-      text : "Красный"
-   },
-   {
-      value: "yellow"
-      text : "Желтый"
-   },
-   ]
-}
-      
-      */
-
-const input = `{
-   "inputs": [
-     {
-     "label": "Фамилия",
-     "disabled": "false",
-     "autofocus": "false",
-     "maxlength": "12",
-      "required" : "false",
-     "type": "text",
-     "id": "last_name", 
-     "placeholder": "Vasiya",
-     "autocomplete": "on",
-     "pattern" : "[A-Z]",
-     "hints": ["наруссsdком","безпробелов"]
-     },
-     {"label": "Я селектор",
-      "name": "color",
-      "id": "color",
-      "type": "select",
-      "multiple": "true",
-      "options": [{
-         "value": "red",
-         "text": "Красный",
-         "selected": "true"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      }
-      ]
-   },
-   {"label": "Я селектор",
-      "name": "color",
-      "id": "color",
-      "type": "select",
-      "multiple": "true",
-      "options": [{
-         "value": "red",
-         "text": "Красный",
-         "selected": "true"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      }
-      ]
-   },
-   {"label": "Собакак",
-      "name": "color",
-      "id": "color",
-      "type": "select",
-      "multiple": "true",
-      "options": [{
-         "value": "red",
-         "text": "Красный",
-         "selected": "true"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      }
-      ]
-   },
-   {"label": "Любовь цветы",
-      "name": "color",
-      "id": "color",
-      "type": "select",
-      "multiple": "false",
-      "options": [{
-         "value": "red",
-         "text": "Красный",
-         "selected": "true"
-      },
-      {
-         "value": "yellow",
-         "text": "Желтый"
-      }
-      ]
-   },
-     {
-     "label": "Возраст",
-     "type": "number",
-     "id": "age",
-     "max": "10"
-     },
-     {
-      "title": "A multiple choices list",
-      "type": "checkbox",
-      "items": [
-            {
-            "label" : "красный",
-            "cheked": "true",
-            "value": "yes",
-            "id": "ch1"
-            },
-            {
-            "label" : "синий",
-            "cheked": "false",
-            "value": "no",
-            "id": "ch2"
-         },
-         {
-            "label" : "синий",
-            "cheked": "false",
-            "value": "no",
-            "id": "ch2"
-         },
-         {
-            "label" : "синий",
-            "cheked": "false",
-            "value": "no",
-            "id": "ch2"
-         },
-         {
-            "label" : "синий",
-            "cheked": "false",
-            "value": "no",
-            "id": "ch2"
-         }
-      ] 
-   },
-  {  
-   "type": "textarea",
-   "id": "textarea1",
-   "label": "story",
-   "placeholder": "подпись поля"
-  },
-  {  
-   "type": "textarea",
-   "id": "textarea1",
-   "label": "story",
-   "placeholder": "подпись поля"
-  },
-  {  
-   "type": "textarea",
-   "id": "textarea1",
-   "label": "story",
-   "placeholder": "подпись поля"
-  },
-  {
-   "type":"radio",
-   "title": "viberi pivko",
-   "name": "beer",
-   "items": [
-      {  
-         "label": "Лагерь",
-         "value": "lager",
-         "id" : "one1"
-      },
-      {  
-         "label": "Дарк",
-         "value": "dark",
-         "id" : "two2"
-      }
-   ]
-  }  
- ],
-   "button": [{
-         "type": "submit",
-         "url": "www.example.com",
-         "text": "Отправить"
-    
-   },
-      {
-         "type":"reset",
-         "value": "сброс"
-      }
-   ],
-   "style" : "light"
- }`
-
 
 class JsonForm {
    constructor (element, options) {
@@ -282,7 +6,7 @@ class JsonForm {
       this.style = this.shema.style ? this.shema.style : "light"
    }
 
-   initForm() {
+   _initForm() {
       this.form = document.createElement('form')
       this.element.append(this.form)
       this.typeMethods = {
@@ -294,16 +18,22 @@ class JsonForm {
          "number": this._createInput.bind(this),
          "checkbox": this._createBox.bind(this),
          "submit": this._renderSubmit.bind(this),
-         "reset": this._renderSubmit.bind(this)
+         "reset": this._renderSubmit.bind(this),
+         "tel": this._createInput.bind(this),
+         "email": this._createInput.bind(this),
+         "url": this._createInput.bind(this),
+         "range": this._createInput.bind(this),
+         "date": this._createInput.bind(this)
+
       }
    }
 
-   _chooseBlackorLigh() {
+   _chooseBlackorLight() {
       if (this.style === "dark") {
          document.body.classList.toggle("dark")
       }
    }
-   renderInputs() {
+   _renderInputs() {
       this.shema.inputs.forEach((element, idx) => {
          const field = document.createElement('input')
          const label = document.createElement('label')
@@ -315,7 +45,7 @@ class JsonForm {
       })
    }
 
-   renderButtons() {
+   _renderButtons() {
       this.shema.button.forEach((element, idx) => {
          const field = document.createElement('input')
          const label = document.createElement('label')
@@ -351,17 +81,15 @@ class JsonForm {
       const supportActions = {
          "required": false,
          "autofocus": false,
-         "disabled": false
+         "disabled": false,
+         "readonly": false,
+         "multiple": false
       }
       keys.forEach(element => {
-
-
          if (additionalActions[element] !== undefined) {
-
             additionalActions[element] = true
          } else {
             if (supportActions[element] === undefined || item[element] !== "false") {
-               console.log(supportActions[element])
                field[element] = item[element]
             }
          }
@@ -426,7 +154,6 @@ class JsonForm {
       div.append(field)
       this.form.append(div)
    }
-   //
    _createBox(item) {
       const div = document.createElement('div')
       const title = document.createElement('h3')
@@ -446,6 +173,12 @@ class JsonForm {
       const field = document.createElement('textarea')
       const div = document.createElement('div')
       div.classList = "textarea"
+      const supportActions = {
+         "autofocus": false,
+         "disabled": false,
+         "readonly": false,
+         "required": false
+      }
       const keys = Object.keys(item)
       const additionalActions = {
          "label": false,
@@ -455,7 +188,9 @@ class JsonForm {
          if (additionalActions[element] !== undefined) {
             additionalActions[element] = true
          } else if (element !== "type") {
-            field[element] = item[element]
+            if (supportActions[element] === undefined || item[element] !== "false") {
+               field[element] = item[element]
+            }
          }
       })
       if (additionalActions.label === true) {
@@ -482,20 +217,16 @@ class JsonForm {
    }
 
    render() {
-      this._chooseBlackorLigh()
-      this.initForm()
-      this.renderInputs()
-      this.renderButtons()
+      this._chooseBlackorLight()
+      this._initForm()
+      this._renderInputs()
+      this._renderButtons()
 
    }
 }
 
 
 
-const formContainer = document.getElementById("start_form")
-
-const Test = new JsonForm(formContainer, { shema: input })
-Test.render()
 
 
 
