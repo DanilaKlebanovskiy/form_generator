@@ -1,7 +1,7 @@
 # Генератор форм
 
 ## Описание:
-Это библиотека JS  преобразовывает JSON с описанием контента формы — в html разметку.
+Это библиотека JS преобразовывает JSON с описанием контента формы — в html разметку.
 
 ## Как подключить:
 Для использования библиотеки необходимо подключить script index.js, а так же подключить style.css
@@ -17,7 +17,7 @@ JSON имеет 3 обязательных поля, inputs, button, style
 3.style - для добавления цветовой темы (поддерживает классы light и dark)
 ```
 
-js const input = `{
+const JSON = `{
    "inputs": [
       {
           "label": "Фамилия",
@@ -59,9 +59,9 @@ js const input = `{
 2. JSON файл на основе которого будет сгенерирована форма
 
 ``` 
-const FormInstance = new JsonForm(formContainer,  { shema:  })
+const FormInstance = new JsonForm(formContainer,  { shema: JSON })
 ```
-Для генерации формы, вызовете метод render(), у экзепляра JsonForm
+Для генерации формы, вызовете метод render(), у экземпляра JsonForm
 
 ```
 FormInstance.render()
@@ -82,29 +82,30 @@ input поддерживает type:
 ```
 type="email", type="search"
       
-autocomplete ,maxLength ,name ,pattern ,placeholder ,readonly ,required ,value
+autocomplete, maxLength, name, pattern, placeholder, readonly, required, value
 
 type="email"
-autocomplete maxLength multiple name pattern placeholder readonly required  value
+autocomplete, maxLength, multiple, name, pattern, placeholder, readonly, required, value
 
 type="tel" , type="url", type="password"
-autocomplete maxLength name pattern placeholder readonly required  value
+autocomplete, maxLength, name, pattern, placeholder, readonly, required,  value
 
 type="number"
-autocomplete maxLength max min name placeholder readonly required size step value
+autocomplete, maxLength, max, min, name, placeholder, readonly, required, step, value
 
 type = "date" , type = "range"
-autocomplete list max min name readonly required step value
+autocomplete, list, max, min, name, readonly, required, step, value
 
 type="textarea"
-      
+autofocus, disabled, readonly, required, maxLength, name
+     
 ```
       
 Поле hints создает блок подсказок ``` [hint1, hint2, ...] ```
 
 Особенности работы type="checkbox" и type="radio", type="select", 
       
-type="select" имеет поле ``multiple`` для создания списка множественного выбора,
+type="select" имеет поле ``multiple``  для создания списка множественного выбора,
 option дополнительное поле ``selected``
 ```
  {
@@ -127,7 +128,7 @@ option дополнительное поле ``selected``
 ```
 type="checkbox" и type="radio"
       
-поле title для заголовка группы радиокнопок, или checkbox
+поле title для заголовка группы radio, или checkbox
       
 поле items массив объектов для каждого checkbox или radio
 имеет дополнительное поле ```checked```
@@ -157,60 +158,14 @@ type="checkbox" и type="radio"
 button поддерживает type: 
 ```
 type = "submit", "reset"
-Дополнительное поле value
+value, name
       
 ```
 Поле style служит для выбора цветовой темы html, может иметь два значения dark или light (для выбора темной или светлой темы)
       
 ### Автор: Данила Клебановский
-      
-
-      
-
-      
-      
-      
-      
-
-Тоже самое про button
-И про style
-
-Автор 
-```
-type = "text", type = "search"
-Поддерживаемые атрибуты:
-autocomplete ,maxlength ,name ,pattern ,placeholder ,readonly ,required ,value
-
-Пример JSON type = "text"
-
-  {
-     "label": "Фамилия",
-     "disabled": "false",
-     "autofocus": "true",
-     "maxlength": "12",
-      "required" : "false",
-     "type": "text",
-     "id": "last_name", 
-     "placeholder": "Vasiya",
-     "autocomplete": "on",
-     "pattern" : "[A-Z]",
-     "hints": ["наруссsком","безпробелов"],
-      "size": "45"
-     }
 
 
-
-type = "radio", type ="checkbox"
-checked name required value
-
-type = "submit"
-formaction formenctype formmethod formnovalidate formtarget name value
-
-type = "reset"
-name value
-
-А также type = "select"
-multiple, required, accesskey
 
 
 
